@@ -130,15 +130,15 @@ h1 {
 }
 
 .weather-section.bonn {
-  background-image: url("../assets/images/Bonn weather.png");
+  background-image: url("../assets/images/Bonn weather.png"); /* Verify this path */
 }
 
 .weather-section.oxford {
-  background-image: url("../assets/images/oxford-bg.png");
+  background-image: url("../assets/images/Oxford weather.png"); /* Verify this path */
 }
 
 body.weather-page {
   background: url("../assets/images/weather-bg.jpg") no-repeat center center
-    fixed;
+    fixed; /* Verify this path */
   background-size: cover;
 }
