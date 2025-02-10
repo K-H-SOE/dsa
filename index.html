@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Maps of Bonn and Oxford</title>
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+    <style>
+      #map-container {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+      }
+      #map-bonn,
+      #map-oxford {
+        width: 400px;
+        height: 300px;
+      }
+      .weather-info {
+        text-align: center;
+        margin-bottom: 10px;
+        position: relative;
+      }
+      .map-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .details {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: white;
+        border: 1px solid #ccc;
+        padding: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+      }
+      .weather-info:hover .details {
+        display: block;
+      }
+      .details-button {
+        margin-top: 5px;
+      }
+      .places-of-interest {
+        margin-top: 10px;
+        text-align: left;
+      }
+      .places-of-interest ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      .places-of-interest li {
+        margin-bottom: 5px;
+      }
+      .navigate-button {
+        margin-left: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .navigate-button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzJwtJbXWYljN3D8Va0vB3VZuhDEdl_9M"></script>
+    <script src="../assets/js/map.js"></script>
+  </head>
+  <body>
+    <h1>Maps of Bonn and Oxford</h1>
+    <div id="map-container">
+      <div class="map-section">
+        <div class="weather-info" id="weather-bonn"></div>
+        <div id="map-bonn"></div>
+        <div class="places-of-interest">
+          <h3>Places of Interest in Bonn</h3>
+          <ul>
+            <li>
+              Beethoven House
+              <button
+                class="navigate-button"
+                onclick="navigateToLocation(mapBonn, 50.735851, 7.101944)"
+              >
+                Go
+              </button>
+            </li>
+            <li>
+              Bonn Minster
+              <button
+                class="navigate-button"
+                onclick="navigateToLocation(mapBonn, 50.7345, 7.0956)"
+              >
+                Go
+              </button>
+            </li>
+            <li>
+              Poppelsdorf Palace
+              <button
+                class="navigate-button"
+                onclick="navigateToLocation(mapBonn, 50.7256, 7.0852)"
+              >
+                Go
+              </button>
+            </li>
+            <li>
+              Botanical Garden
+              <button
+                class="navigate-button"
+                onclick="navigateToLocation(mapBonn, 50.7264, 7.0844)"
+              >
+                Go
+              </button>
+            </li>
+            <li>
+              Rheinisches Landesmuseum
+              <button
+                class="navigate-button"
+                onclick="navigateToLocation(mapBonn, 50.7269, 7.0934)"
+              >
+                Go
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="map-section">
+        <div class="weather-info" id="weather-oxford"></div>
+        <div id="map-oxford"></div>
+        <div class="places-of-interest">
+          <h3>Places of Interest in Oxford</h3>
+          <ul>
+            <li>
+              University of Oxford
+              <button
+                class="navigate-button"
+                onclick="navigateToLocation(mapOxford, 51.754816, -1.254367)"
+              >
+                Go
+              </button>
+            </li>
+            <li>
+              Oxford Castle
+              <button
+                class="navigate-button"
+                onclick="navigateToLocation(mapOxford, 51.7519, -1.2625)"
+              >
+                Go
+              </button>
+            </li>
+            <li>
+              Christ Church Cathedral
+              <button
+                class="navigate-button"
+                onclick="navigateToLocation(mapOxford, 51.7499, -1.2565)"
+              >
+                Go
+              </button>
+            </li>
+            <li>
+              Ashmolean Museum
+              <button
+                class="navigate-button"
+                onclick="navigateToLocation(mapOxford, 51.7554, -1.2603)"
+              >
+                Go
+              </button>
+            </li>
+            <li>
+              Pitt Rivers Museum
+              <button
+                class="navigate-button"
+                onclick="navigateToLocation(mapOxford, 51.7586, -1.2553)"
+              >
+                Go
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
