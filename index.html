@@ -3,7 +3,14 @@
   <head>
     <title>Maps of Bonn and Oxford</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzJwtJbXWYljN3D8Va0vB3VZuhDEdl_9M"></script>
+    <script src="assets/js/config.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const script = document.createElement("script");
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${config.MAP_API_KEY}`;
+        document.head.appendChild(script);
+      });
+    </script>
     <script src="assets/js/map.js"></script>
   </head>
   <body>
