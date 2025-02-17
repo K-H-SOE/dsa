@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bonn Minster - Bonn</title>
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+    <style>
+      #map {
+        width: 100%;
+        height: 400px;
+        margin-top: 20px;
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzJwtJbXWYljN3D8Va0vB3VZuhDEdl_9M"></script>
+    <script>
+      function initMap() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const lat = parseFloat(urlParams.get('lat'));
+        const lng = parseFloat(urlParams.get('lng'));
+
+        const location = { lat: lat, lng: lng };
+        const map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: location,
+        });
+        new google.maps.Marker({
+          position: location,
+          map: map,
+        });
+      }
+    </script>
+  </head>
+  <body onload="initMap()">
+    <h1>Bonn Minster</h1>
+    <p>Detailed information about Bonn Minster...</p>
+    <div id="map"></div>
+  </body>
+</html>
