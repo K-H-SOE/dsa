@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>Maps of Bonn and Oxford - RSS Feed</title>
+    <link>http://localhost/test1/index.html</link>
+    <description>Latest updates and locations for Maps of Bonn and Oxford</description>
+    <item>
+      <title>New Place Added: University of Oxford</title>
+      <link>http://localhost/test1/index.html#map-oxford</link>
+      <description>Check out the updated map with the University of Oxford marker.</description>
+      <pubDate>Thu, 14 Feb 2025 12:00:00 GMT</pubDate>
+    </item>
+    <!-- Add more <item> elements for additional updates -->
+  </channel>
+</rss>

@@ -4,10 +4,19 @@
     <title>Maps of Bonn and Oxford</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
     <script src="assets/js/config.js"></script>
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="RSS Feed"
+      href="rss-feed.xml"
+    />
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const script = document.createElement("script");
-        script.src = `https://maps.googleapis.com/maps/api/js?key=${config.MAP_API_KEY}`;
+        var script = document.createElement("script");
+        // Append callback to initialize maps (make sure you have an initMaps function in map.js)
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${config.MAP_API_KEY}&callback=initMaps`;
+        script.async = true;
+        script.defer = true;
         document.head.appendChild(script);
       });
     </script>
@@ -125,5 +134,27 @@
         </div>
       </div>
     </div>
+    <div id="rss-feed-container">
+      <h3>Latest RSS Feed Updates</h3>
+      <ul id="rss-feed-list"></ul>
+    </div>
+    <script>
+      // Fetch and display the RSS feed items
+      fetch("rss-feed.xml")
+        .then((response) => response.text())
+        .then((str) => new window.DOMParser().parseFromString(str, "text/xml"))
+        .then((data) => {
+          const items = data.querySelectorAll("item");
+          const feedList = document.getElementById("rss-feed-list");
+          items.forEach((item) => {
+            const li = document.createElement("li");
+            const title = item.querySelector("title").textContent;
+            const link = item.querySelector("link").textContent;
+            li.innerHTML = `<a href="${link}" target="_blank">${title}</a>`;
+            feedList.appendChild(li);
+          });
+        })
+        .catch((error) => console.error("Error fetching RSS feed:", error));
+    </script>
   </body>
 </html>
