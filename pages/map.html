@@ -5,52 +5,30 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="C:\laragon\www\test1\assests\css\style.css"
+      href="C:\laragon\www\test1\assets\css\style.css"
     />
     <style>
-        #map-container {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
-        #map-bonn,
-        #map-oxford {
-            width: 400px;
-            height: 300px;
-        }
-    </style>
-    
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzJwtJbXWYljN3D8Va0vB3VZuhDEdl_9M"></script>
-    <script>
-      function initMap() {
-        var bonn = { lat: 50.7374, lng: 7.0982 };
-        var oxford = { lat: 51.752, lng: -1.2577 };
-
-        var mapBonn = new google.maps.Map(document.getElementById("map-bonn"), {
-          zoom: 14,
-          center: bonn,
-        });
-        var markerBonn = new google.maps.Marker({
-          position: bonn,
-          map: mapBonn,
-        });
-
-        var mapOxford = new google.maps.Map(
-          document.getElementById("map-oxford"),
-          {
-            zoom: 14,
-            center: oxford,
-          }
-        );
-        var markerOxford = new google.maps.Marker({
-          position: oxford,
-          map: mapOxford,
-        });
+      #map-container {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
       }
+      #map-bonn,
+      #map-oxford {
+        width: 400px;
+        height: 300px;
+      }
+    </style>
+    <script type="module">
+      import { config } from "../assets/js/config.js";
+      import { loadGoogleMapsAPI } from "../assets/js/map.js";
+
+      document.addEventListener("DOMContentLoaded", function () {
+        loadGoogleMapsAPI(config.MAP_API_KEY, "initMap");
+      });
     </script>
   </head>
-  <body onload="initMap()">
+  <body>
     <h1>Maps of Bonn and Oxford</h1>
     <div id="map-container">
       <div id="map-bonn"></div>

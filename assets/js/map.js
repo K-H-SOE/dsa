@@ -1,6 +1,16 @@
+import { config } from "./config.js";
+
 var mapBonn, mapOxford;
 
-function initMap() {
+export function loadGoogleMapsAPI(apiKey, callback) {
+  var script = document.createElement("script");
+  script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=${callback}`;
+  script.async = true;
+  script.defer = true;
+  document.head.appendChild(script);
+}
+
+export function initMaps() {
   var bonn = { lat: 50.7374, lng: 7.0982 };
   var oxford = { lat: 51.752, lng: -1.2577 };
 
@@ -23,35 +33,14 @@ function initMap() {
   });
 }
 
-function fetchWeather(city, elementId) {
-  var apiKey = "df4de86466c5f167956cfd67c21994ca";
-  var url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      var weatherInfo = `Weather in ${city}: ${data.weather[0].description}, ${data.main.temp}°C`;
-      var details = `
-                <div>Wind Speed: ${data.wind.speed} m/s</div>
-                <div>Humidity: ${data.main.humidity}%</div>
-                <div>Pressure: ${data.main.pressure} hPa</div>
-            `;
-      document.getElementById(elementId).innerHTML = `
-                ${weatherInfo}
-                <button class="details-button" onclick="window.location.href='weather.html'">More Weather Details</button>
-                <div class="details">${details}</div>
-            `;
-    })
-    .catch((error) => console.error("Error fetching weather data:", error));
-}
-
-function navigateToLocation(map, lat, lng) {
+export function navigateToLocation(map, lat, lng) {
   map.setCenter({ lat: lat, lng: lng });
   map.setZoom(16);
 }
 
+// Ensure the Google Maps API is loaded and initMaps is called
+window.initMaps = initMaps;
+
 window.onload = function () {
-  initMap();
-  fetchWeather("Bonn", "weather-bonn");
-  fetchWeather("Oxford", "weather-oxford");
+  loadGoogleMapsAPI(config.MAP_API_KEY, "initMaps");
 };

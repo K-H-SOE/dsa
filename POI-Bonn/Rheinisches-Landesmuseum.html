@@ -10,15 +10,21 @@
         margin-top: 20px;
       }
     </style>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzJwtJbXWYljN3D8Va0vB3VZuhDEdl_9M"></script>
-    <script>
-      function initMap() {
+    <script type="module">
+      import { config } from "../assets/js/config.js";
+      import { loadGoogleMapsAPI } from "../assets/js/map.js";
+
+      document.addEventListener("DOMContentLoaded", function () {
+        loadGoogleMapsAPI(config.MAP_API_KEY, "initMap");
+      });
+
+      window.initMap = function () {
         const urlParams = new URLSearchParams(window.location.search);
-        const lat = parseFloat(urlParams.get('lat'));
-        const lng = parseFloat(urlParams.get('lng'));
+        const lat = parseFloat(urlParams.get("lat"));
+        const lng = parseFloat(urlParams.get("lng"));
 
         const location = { lat: lat, lng: lng };
-        const map = new google.maps.Map(document.getElementById('map'), {
+        const map = new google.maps.Map(document.getElementById("map"), {
           zoom: 15,
           center: location,
         });
@@ -26,10 +32,10 @@
           position: location,
           map: map,
         });
-      }
+      };
     </script>
   </head>
-  <body onload="initMap()">
+  <body>
     <h1>Rheinisches Landesmuseum</h1>
     <p>Detailed information about Rheinisches Landesmuseum...</p>
     <div id="map"></div>

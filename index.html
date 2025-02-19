@@ -1,134 +1,156 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Maps of Bonn and Oxford</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-    <script src="assets/js/config.js"></script>
     <link
       rel="alternate"
       type="application/rss+xml"
       title="RSS Feed"
       href="rss-feed.xml"
     />
-    <script>
+    <script type="module">
+      import { config } from "./assets/js/config.js";
+      import { loadGoogleMapsAPI } from "./assets/js/map.js";
+      import { loadWeatherData } from "./assets/js/weather.js";
+
       document.addEventListener("DOMContentLoaded", function () {
-        var script = document.createElement("script");
-        // Append callback to initialize maps (make sure you have an initMaps function in map.js)
-        script.src = `https://maps.googleapis.com/maps/api/js?key=${config.MAP_API_KEY}&callback=initMaps`;
-        script.async = true;
-        script.defer = true;
-        document.head.appendChild(script);
+        loadGoogleMapsAPI(config.MAP_API_KEY, "initMaps");
+        loadWeatherData(config.WEATHER_API_KEY);
       });
     </script>
-    <script src="assets/js/map.js"></script>
   </head>
   <body>
     <h1>Maps of Bonn and Oxford</h1>
     <div id="map-container">
       <div class="map-section">
         <div class="weather-info" id="weather-bonn"></div>
+        <div class="weather-forecast" id="weather-forecast-bonn"></div>
         <div id="map-bonn"></div>
         <div class="places-of-interest">
           <h3>Places of Interest in Bonn</h3>
           <ul>
             <li>
               Beethoven House
-              <button
+              <a
                 class="navigate-button"
-                onclick="window.location.href='POI-Bonn/beethoven-house.html?lat=50.735851&lng=7.10066'"
+                href="POI-Bonn/beethoven-house.html?lat=50.735851&lng=7.10066"
+                target="_blank"
+                title="Goes to Beethoven House"
               >
                 Go
-              </button>
+              </a>
             </li>
             <li>
               Bonn Minster
-              <button
+              <a
                 class="navigate-button"
-                onclick="window.location.href='POI-Bonn/Bonn-Minster.html?lat=50.7344&lng=7.0955'"
+                href="POI-Bonn/Bonn-Minster.html?lat=50.7344&lng=7.0955"
+                target="_blank"
+                title="Goes to Bonn Minster"
               >
                 Go
-              </button>
+              </a>
             </li>
             <li>
               Poppelsdorf Palace
-              <button
+              <a
                 class="navigate-button"
-                onclick="window.location.href='POI-Bonn/Poppelsdorf-Palace.html?lat=50.7256&lng=7.0852'"
+                href="POI-Bonn/Poppelsdorf-Palace.html?lat=50.7256&lng=7.0852"
+                target="_blank"
+                title="Goes to Poppelsdorf Palace"
               >
                 Go
-              </button>
+              </a>
             </li>
             <li>
               Botanical Garden
-              <button
+              <a
                 class="navigate-button"
-                onclick="window.location.href='POI-Bonn/Botanical-Garden.html?lat=50.7264&lng=7.0844'"
+                href="POI-Bonn/Botanical-Garden.html?lat=50.7264&lng=7.0844"
+                target="_blank"
+                title="Goes to Botanical Garden"
               >
                 Go
-              </button>
+              </a>
             </li>
             <li>
               Rheinisches Landesmuseum
-              <button
+              <a
                 class="navigate-button"
-                onclick="window.location.href='POI-Bonn/Rheinisches-Landesmuseum.html?lat=50.7269&lng=7.0934'"
+                href="POI-Bonn/Rheinisches-Landesmuseum.html?lat=50.7269&lng=7.0934"
+                target="_blank"
+                title="Goes to Rheinisches Landesmuseum"
               >
                 Go
-              </button>
+              </a>
             </li>
           </ul>
         </div>
       </div>
       <div class="map-section">
         <div class="weather-info" id="weather-oxford"></div>
+        <div class="weather-forecast" id="weather-forecast-oxford"></div>
         <div id="map-oxford"></div>
         <div class="places-of-interest">
           <h3>Places of Interest in Oxford</h3>
           <ul>
             <li>
               University of Oxford
-              <button
+              <a
                 class="navigate-button"
-                onclick="navigateToLocation(mapOxford, 51.754816, -1.254367)"
+                href="POI-Oxford/university-of-oxford.html?lat=51.754816&lng=-1.254367"
+                target="_blank"
+                title="Goes to University of Oxford"
               >
                 Go
-              </button>
+              </a>
             </li>
             <li>
               Oxford Castle
-              <button
+              <a
                 class="navigate-button"
-                onclick="navigateToLocation(mapOxford, 51.7519, -1.2625)"
+                href="POI-Oxford/oxford-castle.html?lat=51.7519&lng=-1.2625"
+                target="_blank"
+                title="Goes to Oxford Castle"
               >
                 Go
-              </button>
+              </a>
             </li>
             <li>
               Christ Church Cathedral
-              <button
+              <a
                 class="navigate-button"
-                onclick="navigateToLocation(mapOxford, 51.7499, -1.2565)"
+                href="POI-Oxford/christ-church-cathedral.html?lat=51.7499&lng=-1.2565"
+                target="_blank"
+                title="Goes to Christ Church Cathedral"
               >
                 Go
-              </button>
+              </a>
             </li>
             <li>
               Ashmolean Museum
-              <button
+              <a
                 class="navigate-button"
-                onclick="navigateToLocation(mapOxford, 51.7554, -1.2603)"
+                href="POI-Oxford/ashmolean-museum.html?lat=51.7554&lng=-1.2603"
+                target="_blank"
+                title="Goes to Ashmolean Museum"
               >
                 Go
-              </button>
+              </a>
             </li>
             <li>
               Pitt Rivers Museum
-              <button
+              <a
                 class="navigate-button"
-                onclick="navigateToLocation(mapOxford, 51.7586, -1.2553)"
+                href="POI-Oxford/pitt-rivers-museum.html?lat=51.7586&lng=-1.2553"
+                target="_blank"
+                title="Goes to Pitt Rivers Museum"
               >
                 Go
-              </button>
+              </a>
             </li>
           </ul>
         </div>
@@ -139,7 +161,6 @@
       <ul id="rss-feed-list"></ul>
     </div>
     <script>
-      // Fetch and display the RSS feed items
       fetch("rss-feed.xml")
         .then((response) => response.text())
         .then((str) => new window.DOMParser().parseFromString(str, "text/xml"))
