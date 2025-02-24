@@ -22,28 +22,7 @@ h2 {
   color: #555;
 }
 
-#map-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px; /* Add space between the maps */
-  margin-top: 20px;
-}
 
-#map-bonn,
-#map-oxford {
-  height: 400px;
-  width: 400px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.weather-info,
-.weather-forecast {
-  text-align: left; /* Align text to the left */
-  margin-bottom: 10px;
-  font-size: 1.1em;
-}
 
 .weather-info p,
 .weather-forecast p {
@@ -59,11 +38,7 @@ h2 {
   margin-bottom: 5px;
 }
 
-.places-of-interest {
-  margin-top: 10px;
-  text-align: left;
-  width: 400px; /* Align with the width of the maps */
-}
+
 
 .places-of-interest ul {
   list-style-type: none;
@@ -86,6 +61,7 @@ h2 {
   border-radius: 5px;
   cursor: pointer;
 }
+
 
 .navigate-button:hover {
   background-color: #0056b3;

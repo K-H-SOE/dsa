@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Maps of Bonn and Oxford</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css" />
     <script type="module">
       import { config } from "./assets/js/config.js";
       import { loadGoogleMapsAPI } from "./assets/js/map.js";

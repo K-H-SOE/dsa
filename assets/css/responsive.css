@@ -1,0 +1,52 @@
+@media screen and (max-width: 480px) {
+  .places-of-interest {
+    text-align: center;
+    width: 100%;
+  }
+
+  .navigate-button {
+    width: 100%; /* Full width on smaller screens */
+    max-width: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #map-container {
+    flex-direction: column; /* Stacks the maps on smaller screens */
+    align-items: center;
+  }
+}
+
+#map-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows maps to stack on smaller screens */
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  #map-bonn,
+  #map-oxford {
+    height: 300px;
+    width: 100%; /* Make width flexible */
+    max-width: 400px; /* Ensures it doesn't exceed 400px */
+  }
+  
+  .weather-info,
+  .weather-forecast {
+    text-align: left; /* Align text to the left */
+    margin-bottom: 10px;
+    font-size: 1.1em;
+  }
+
+  .navigate-button {
+    width: 100%;
+    max-width: 50px; /* Ensures it's not too big */
+    padding: 8px 12px; /* Makes it easier to click */
+    text-align: center;
+  }
+  
+  .places-of-interest {
+    margin-top: 10px;
+    text-align: left;
+    width: 400px; /* Align with the width of the maps */
+  }
