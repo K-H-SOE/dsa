@@ -4,7 +4,7 @@ body {
   flex-direction: column;
   align-items: center;
   margin: 0;
-  background-color: #d0d0d4;
+  background-color: #f0f0f5;
   color: #333;
 }
 
@@ -13,6 +13,13 @@ h1 {
   margin-top: 20px;
   font-size: 2em;
   color: #444;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1.5em;
+  color: #555;
 }
 
 #map-container {
@@ -31,11 +38,25 @@ h1 {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.weather-info {
-  text-align: center;
+.weather-info,
+.weather-forecast {
+  text-align: left; /* Align text to the left */
   margin-bottom: 10px;
-  position: relative;
   font-size: 1.1em;
+}
+
+.weather-info p,
+.weather-forecast p {
+  margin: 5px 0;
+}
+
+.weather-forecast ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.weather-forecast li {
+  margin-bottom: 5px;
 }
 
 .places-of-interest {
@@ -70,92 +91,33 @@ h1 {
   background-color: #0056b3;
 }
 
-.weather-container {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-  gap: 20px; /* Add space between the weather sections */
-}
-
-.weather-section {
-  position: relative;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.6
-  ); /* Darker background for better text visibility */
-  border: 1px solid #ccc;
+.current-weather,
+.weather-forecast {
+  background-color: #fff;
+  padding: 10px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 48%; /* Increase the width */
-  text-align: center;
-  backdrop-filter: blur(10px);
-  background-size: cover;
-  background-position: center;
-  color: #fff; /* White text for better contrast */
+  margin-bottom: 20px;
 }
 
-.weather-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
-  border-radius: 8px;
-  z-index: 0;
-}
-
-.weather-section h2 {
-  margin-top: 0;
-  color: #fff; /* White text for better contrast */
-  position: relative;
-  z-index: 1;
-}
-
-.weather-details,
-.weather-forecast {
-  margin-top: 10px;
-  position: relative;
-  z-index: 1;
-  text-align: left; /* Align text to the left for better readability */
-  padding: 10px; /* Add padding for better spacing */
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.1
-  ); /* Slightly transparent background for better contrast */
-  border-radius: 8px; /* Add border radius for rounded corners */
+.current-weather p,
+.weather-forecast p {
+  font-size: 1em;
+  color: #444;
 }
 
 .weather-forecast h3 {
   margin-top: 0;
-  color: #fff; /* White text for better contrast */
+  font-size: 1.2em;
+  color: #444;
+  text-align: left;
 }
 
 .weather-forecast ul {
-  list-style-type: none;
-  padding: 0;
-  color: #fff; /* White text for better contrast */
+  padding-left: 20px;
 }
 
 .weather-forecast li {
-  margin-bottom: 5px;
-}
-
-.weather-section.bonn {
-  background-image: url("../images/Bonn weather.png");
-}
-
-.weather-section.oxford {
-  background-image: url("../images/Oxford weather.png");
-}
-
-body.weather-page {
-  background: url("../images/weather-bg.jpg") no-repeat center center fixed;
-  background-size: cover;
+  font-size: 1em;
+  color: #555;
 }
