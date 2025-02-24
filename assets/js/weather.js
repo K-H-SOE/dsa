@@ -1,11 +1,11 @@
 import { config } from "./config.js";
 
 document.addEventListener("DOMContentLoaded", function () {
-  fetchWeather("Bonn", "weather-details-bonn", "weather-forecast-bonn");
-  fetchWeather("Oxford", "weather-details-oxford", "weather-forecast-oxford");
+  fetchWeather("Bonn", "current-weather-bonn", "weather-forecast-bonn");
+  fetchWeather("Oxford", "current-weather-oxford", "weather-forecast-oxford");
 });
 
-function fetchWeather(city, detailsElementId, forecastElementId) {
+function fetchWeather(city, currentElementId, forecastElementId) {
   var apiKey = config.WEATHER_API_KEY;
   var weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   var forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
@@ -20,7 +20,7 @@ function fetchWeather(city, detailsElementId, forecastElementId) {
         <p>Humidity: ${data.main.humidity}%</p>
         <p>Wind Speed: ${data.wind.speed} m/s</p>
       `;
-      document.getElementById(detailsElementId).innerHTML = weatherDetails;
+      document.getElementById(currentElementId).innerHTML = weatherDetails;
     })
     .catch((error) => console.error("Error fetching weather data:", error));
 
@@ -31,7 +31,7 @@ function fetchWeather(city, detailsElementId, forecastElementId) {
       var forecastList = data.list
         .filter((item, index) => index % 8 === 0)
         .slice(0, 3);
-      var forecastDetails = "<h3>3-Day Forecast</h3><ul>";
+      var forecastDetails = "<ul>";
       forecastList.forEach((item) => {
         var date = new Date(item.dt_txt).toLocaleDateString();
         forecastDetails += `
@@ -45,22 +45,54 @@ function fetchWeather(city, detailsElementId, forecastElementId) {
 }
 
 export function loadWeatherData(apiKey) {
-  // Example function to load weather data using the provided API key
-  fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=Bonn`)
-    .then((response) => response.json())
-    .then((data) => {
-      document.getElementById(
-        "weather-bonn"
-      ).innerText = `Temperature: ${data.current.temp_c}°C`;
-    })
-    .catch((error) => console.error("Error fetching weather data:", error));
+  const locations = [
+    { id: "bonn", lat: 50.735851, lng: 7.10066 },
+    { id: "oxford", lat: 51.754816, lng: -1.254367 },
+  ];
 
-  fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=Oxford`)
-    .then((response) => response.json())
-    .then((data) => {
-      document.getElementById(
-        "weather-oxford"
-      ).innerText = `Temperature: ${data.current.temp_c}°C`;
-    })
-    .catch((error) => console.error("Error fetching weather data:", error));
+  locations.forEach((location) => {
+    fetch(
+      `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location.lat},${location.lng}`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        document.getElementById(`current-weather-${location.id}`).innerHTML = `
+          <p>Temperature: ${data.current.temp_c}°C</p>
+          <p>Condition: ${data.current.condition.text}</p>
+        `;
+      })
+      .catch((error) =>
+        console.error(
+          `Error fetching current weather for ${location.id}:`,
+          error
+        )
+      );
+
+    fetch(
+      `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location.lat},${location.lng}&days=3`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        const forecastHtml = data.forecast.forecastday
+          .map(
+            (day) => `
+          <div>
+            <p>Date: ${day.date}</p>
+            <p>Max Temp: ${day.day.maxtemp_c}°C</p>
+            <p>Min Temp: ${day.day.mintemp_c}°C</p>
+            <p>Condition: ${day.day.condition.text}</p>
+          </div>
+        `
+          )
+          .join("");
+        document.getElementById(`weather-forecast-${location.id}`).innerHTML =
+          forecastHtml;
+      })
+      .catch((error) =>
+        console.error(
+          `Error fetching weather forecast for ${location.id}:`,
+          error
+        )
+      );
+  });
 }

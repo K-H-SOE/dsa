@@ -1,0 +1,5 @@
+export const config = {
+  MAP_API_KEY: "AIzaSyCzJwtJbXWYljN3D8Va0vB3VZuhDEdl_9M",
+  WEATHER_API_KEY: "df4de86466c5f167956cfd67c21994ca",
+  IMAGE_API_KEY: "40482e392bb77a6a417efb30c7208d2f",
+};
