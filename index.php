@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Custom CSS -->
+    <!-- Custom CSS - Simplified -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/responsive.css" />
     <!-- Scripts -->
@@ -49,7 +49,7 @@
   </head>
   <body>
     <!-- Dark Mode Toggle -->
-    <button id="dark-mode-toggle" class="btn btn-dark">
+    <button id="dark-mode-toggle" class="btn btn-dark position-fixed top-0 end-0 m-3 shadow-sm">
       <i class="fas fa-moon me-2"></i>Dark Mode
     </button>
     
@@ -65,7 +65,7 @@
       <div class="row g-4">
         <!-- Bonn Section -->
         <div class="col-lg-6 mb-4">
-          <div class="card h-100">
+          <div class="card h-100 shadow-sm border">
             <div class="card-header bg-primary text-white">
               <h3 class="mb-0"><i class="fas fa-map-marker-alt me-2"></i>Bonn</h3>
             </div>
@@ -76,39 +76,39 @@
               <div id="weather-forecast-bonn" class="weather-forecast mb-4"></div>
               
               <!-- Map -->
-              <div id="map-bonn" class="mb-4"></div>
+              <div id="map-bonn" class="mb-4 rounded shadow-sm border"></div>
               
               <!-- Points of Interest -->
-              <div class="places-of-interest">
+              <div class="bg-light p-4 rounded shadow-sm border">
                 <h4 class="mb-3"><i class="fas fa-landmark me-2"></i>Places of Interest</h4>
-                <ul class="list-unstyled">
-                  <li class="d-flex justify-content-between align-items-center mb-3 p-3 rounded">
-                    <span><i class="fas fa-music me-2"></i>Beethoven House</span>
-                    <a class="btn btn-primary btn-sm navigate-button" href="POI-Bonn/beethoven-house.html?lat=50.735851&lng=7.10066" target="_blank">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                    <span><i class="fas fa-music text-primary me-2"></i>Beethoven House</span>
+                    <a class="btn btn-primary btn-sm" href="POI-Bonn/beethoven-house.html?lat=50.735851&lng=7.10066" target="_blank">
                       <i class="fas fa-arrow-right me-1"></i>Visit
                     </a>
                   </li>
-                  <li class="d-flex justify-content-between align-items-center mb-3 p-3 rounded">
-                    <span><i class="fas fa-church me-2"></i>Bonn Minster</span>
-                    <a class="btn btn-primary btn-sm navigate-button" href="POI-Bonn/Bonn-Minster.html?lat=50.7344&lng=7.0955" target="_blank">
+                  <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                    <span><i class="fas fa-church text-primary me-2"></i>Bonn Minster</span>
+                    <a class="btn btn-primary btn-sm" href="POI-Bonn/Bonn-Minster.html?lat=50.7344&lng=7.0955" target="_blank">
                       <i class="fas fa-arrow-right me-1"></i>Visit
                     </a>
                   </li>
-                  <li class="d-flex justify-content-between align-items-center mb-3 p-3 rounded">
-                    <span><i class="fas fa-landmark me-2"></i>Poppelsdorf Palace</span>
-                    <a class="btn btn-primary btn-sm navigate-button" href="POI-Bonn/Poppelsdorf-Palace.html?lat=50.7256&lng=7.0852" target="_blank">
+                  <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                    <span><i class="fas fa-landmark text-primary me-2"></i>Poppelsdorf Palace</span>
+                    <a class="btn btn-primary btn-sm" href="POI-Bonn/Poppelsdorf-Palace.html?lat=50.7256&lng=7.0852" target="_blank">
                       <i class="fas fa-arrow-right me-1"></i>Visit
                     </a>
                   </li>
-                  <li class="d-flex justify-content-between align-items-center mb-3 p-3 rounded">
-                    <span><i class="fas fa-seedling me-2"></i>Botanical Garden</span>
-                    <a class="btn btn-primary btn-sm navigate-button" href="POI-Bonn/Botanical-Garden.html?lat=50.7264&lng=7.0844" target="_blank">
+                  <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                    <span><i class="fas fa-seedling text-primary me-2"></i>Botanical Garden</span>
+                    <a class="btn btn-primary btn-sm" href="POI-Bonn/Botanical-Garden.html?lat=50.7264&lng=7.0844" target="_blank">
                       <i class="fas fa-arrow-right me-1"></i>Visit
                     </a>
                   </li>
-                  <li class="d-flex justify-content-between align-items-center mb-3 p-3 rounded">
-                    <span><i class="fas fa-landmark me-2"></i>Rheinisches Landesmuseum</span>
-                    <a class="btn btn-primary btn-sm navigate-button" href="POI-Bonn/Rheinisches-Landesmuseum.html?lat=50.7269&lng=7.0934" target="_blank">
+                  <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                    <span><i class="fas fa-landmark text-primary me-2"></i>Rheinisches Landesmuseum</span>
+                    <a class="btn btn-primary btn-sm" href="POI-Bonn/Rheinisches-Landesmuseum.html?lat=50.7269&lng=7.0934" target="_blank">
                       <i class="fas fa-arrow-right me-1"></i>Visit
                     </a>
                   </li>
@@ -120,7 +120,7 @@
         
         <!-- Oxford Section -->
         <div class="col-lg-6 mb-4">
-          <div class="card h-100">
+          <div class="card h-100 shadow-sm border">
             <div class="card-header bg-primary text-white">
               <h3 class="mb-0"><i class="fas fa-map-marker-alt me-2"></i>Oxford</h3>
             </div>
@@ -131,39 +131,39 @@
               <div id="weather-forecast-oxford" class="weather-forecast mb-4"></div>
               
               <!-- Map -->
-              <div id="map-oxford" class="mb-4"></div>
+              <div id="map-oxford" class="mb-4 rounded shadow-sm border"></div>
               
               <!-- Points of Interest -->
-              <div class="places-of-interest">
+              <div class="bg-light p-4 rounded shadow-sm border">
                 <h4 class="mb-3"><i class="fas fa-landmark me-2"></i>Places of Interest</h4>
-                <ul class="list-unstyled">
-                  <li class="d-flex justify-content-between align-items-center mb-3 p-3 rounded">
-                    <span><i class="fas fa-university me-2"></i>University of Oxford</span>
-                    <a class="btn btn-primary btn-sm navigate-button" href="POI-Oxford/university-of-oxford.html?lat=51.754816&lng=-1.254367" target="_blank">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                    <span><i class="fas fa-university text-primary me-2"></i>University of Oxford</span>
+                    <a class="btn btn-primary btn-sm" href="POI-Oxford/university-of-oxford.html?lat=51.754816&lng=-1.254367" target="_blank">
                       <i class="fas fa-arrow-right me-1"></i>Visit
                     </a>
                   </li>
-                  <li class="d-flex justify-content-between align-items-center mb-3 p-3 rounded">
-                    <span><i class="fas fa-landmark me-2"></i>Oxford Castle</span>
-                    <a class="btn btn-primary btn-sm navigate-button" href="POI-Oxford/oxford-castle.html?lat=51.7519&lng=-1.2625" target="_blank">
+                  <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                    <span><i class="fas fa-landmark text-primary me-2"></i>Oxford Castle</span>
+                    <a class="btn btn-primary btn-sm" href="POI-Oxford/oxford-castle.html?lat=51.7519&lng=-1.2625" target="_blank">
                       <i class="fas fa-arrow-right me-1"></i>Visit
                     </a>
                   </li>
-                  <li class="d-flex justify-content-between align-items-center mb-3 p-3 rounded">
-                    <span><i class="fas fa-church me-2"></i>Christ Church Cathedral</span>
-                    <a class="btn btn-primary btn-sm navigate-button" href="POI-Oxford/christ-church-cathedral.html?lat=51.7499&lng=-1.2565" target="_blank">
+                  <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                    <span><i class="fas fa-church text-primary me-2"></i>Christ Church Cathedral</span>
+                    <a class="btn btn-primary btn-sm" href="POI-Oxford/christ-church-cathedral.html?lat=51.7499&lng=-1.2565" target="_blank">
                       <i class="fas fa-arrow-right me-1"></i>Visit
                     </a>
                   </li>
-                  <li class="d-flex justify-content-between align-items-center mb-3 p-3 rounded">
-                    <span><i class="fas fa-landmark me-2"></i>Ashmolean Museum</span>
-                    <a class="btn btn-primary btn-sm navigate-button" href="POI-Oxford/ashmolean-museum.html?lat=51.7554&lng=-1.2603" target="_blank">
+                  <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                    <span><i class="fas fa-landmark text-primary me-2"></i>Ashmolean Museum</span>
+                    <a class="btn btn-primary btn-sm" href="POI-Oxford/ashmolean-museum.html?lat=51.7554&lng=-1.2603" target="_blank">
                       <i class="fas fa-arrow-right me-1"></i>Visit
                     </a>
                   </li>
-                  <li class="d-flex justify-content-between align-items-center mb-3 p-3 rounded">
-                    <span><i class="fas fa-landmark me-2"></i>Pitt Rivers Museum</span>
-                    <a class="btn btn-primary btn-sm navigate-button" href="POI-Oxford/pitt-rivers-museum.html?lat=51.7586&lng=-1.2553" target="_blank">
+                  <li class="list-group-item d-flex justify-content-between align-items-center bg-transparent">
+                    <span><i class="fas fa-landmark text-primary me-2"></i>Pitt Rivers Museum</span>
+                    <a class="btn btn-primary btn-sm" href="POI-Oxford/pitt-rivers-museum.html?lat=51.7586&lng=-1.2553" target="_blank">
                       <i class="fas fa-arrow-right me-1"></i>Visit
                     </a>
                   </li>
@@ -175,8 +175,8 @@
       </div>
       
       <!-- News Container -->
-      <div id="news-container" class="card my-5">
-        <div class="card-body">
+      <div class="card my-5 shadow-sm border">
+        <div class="card-body" id="news-container">
           <?php include 'php/rss_feed.php'; ?>
         </div>
       </div>
