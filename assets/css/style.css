@@ -1,13 +1,10 @@
+/* Base styles optimized */
 body {
   font-family: "Poppins", sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin: 0;
   background: linear-gradient(120deg, #f6f9fc, #e3e9f2);
   color: #2d3748;
   transition: all 0.4s ease;
-  padding-bottom: 3rem;
   min-height: 100vh;
 }
 
@@ -102,7 +99,7 @@ h2 {
   border: 1px solid rgba(226, 232, 240, 0.5);
 }
 
-.places-of-interest h3 {
+.places-of-interest h4 {
   color: #2b6cb0;
   margin-top: 0;
   margin-bottom: 1rem;
@@ -150,6 +147,23 @@ h2 {
   box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
 }
 
+/* Override Bootstrap button styles to match existing design */
+.btn-primary.navigate-button {
+  background-color: #4299e1;
+  border-color: #4299e1;
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+}
+
+.btn-primary.navigate-button:hover {
+  background-color: #2b6cb0;
+  border-color: #2b6cb0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(66, 153, 225, 0.3);
+}
+
 /* Dark mode toggle button */
 #dark-mode-toggle {
   position: fixed;
@@ -165,9 +179,6 @@ h2 {
   transition: all 0.3s ease;
   z-index: 1000;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
 }
 
 #dark-mode-toggle:hover {
@@ -176,25 +187,7 @@ h2 {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* Map Container */
-#map-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2.5rem;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.map-section {
-  flex: 1;
-  min-width: 300px;
-  display: flex;
-  flex-direction: column;
-}
-
+/* Maps styling */
 #map-bonn,
 #map-oxford {
   height: 320px;
@@ -204,6 +197,7 @@ h2 {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   border: 3px solid white;
   transition: all 0.3s ease;
+  margin-bottom: 1rem;
 }
 
 #map-bonn:hover,
@@ -211,14 +205,23 @@ h2 {
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* News container */
-#news-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  background-color: white;
-  border-radius: 1rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+/* Card hover effects */
+.card {
   transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Icon colors */
+.fa-map-marker-alt,
+.fa-landmark,
+.fa-calendar-alt,
+.fa-music,
+.fa-church,
+.fa-seedling,
+.fa-university {
+  color: #4299e1;
 }
